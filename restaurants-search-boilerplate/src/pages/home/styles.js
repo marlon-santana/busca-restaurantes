@@ -7,3 +7,14 @@ height: 100vh;
 overflow-y: auto;
 
 `;
+
+export const Search = styled.section `
+display:flex;
+flex-direction: column;
+justify-content: center;
+background: white;
+padding: 16px;
+
+
+
+`;
