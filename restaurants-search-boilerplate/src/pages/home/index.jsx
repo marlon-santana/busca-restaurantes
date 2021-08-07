@@ -1,11 +1,10 @@
 import React, { useState }  from 'react';
 import logo from '../../assets/logo.svg';
-import { Container, Search, Wrapper,Logo, Map, CarouselTitle } from './styles';
+import { Container, Search,Carousel, Wrapper,Logo, Map, CarouselTitle } from './styles';
 import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 import restaurantes from '../../assets/restaurante-fake.png';
 import Slider from 'react-slick';
-import { ImageCard } from '../../components/ImageCard';
 import { Card } from '../../components';
 
 
@@ -40,11 +39,15 @@ export function Home() {
                 />
                 </TextField>
                 <CarouselTitle>Na sua Ârea</CarouselTitle>
-                <Slider {...Settings}>
-                    <Card photo={restaurantes}/>
+                <Carousel {...Settings}>
+                    <Card photo={restaurantes} title="Nome do Restaurante"/>
+                    <Card photo={restaurantes} title="Nome do Restaurante"/>
+                    <Card photo={restaurantes} title="Nome do Restaurante"/>
+                    <Card photo={restaurantes} title="Nome do Restaurante"/>
+                    <Card photo={restaurantes} title="Nome do Restaurante"/>
                     
 
-                </Slider>
+                </Carousel>
             </Search>
          </Container>
           <Map />

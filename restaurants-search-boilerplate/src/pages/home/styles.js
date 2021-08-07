@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Slider from 'react-slick';
 
 
 
@@ -26,6 +27,16 @@ padding: 16px;
 
 export const Logo = styled.img`
 margin-bottom: 15px;
+
+`;
+
+export const Carousel = styled(Slider)`
+.slick-slide {
+    margin-right: 40px;
+    color: white;
+    
+}
+
 
 `;
 
