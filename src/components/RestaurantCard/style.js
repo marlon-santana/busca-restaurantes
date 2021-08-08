@@ -14,3 +14,27 @@ border-left: 5px solid transparent;
     border-left: 5px solid purple;
 }
 `;
+export const RestaurantInfo = styled.div`
+display: flex;
+flex-direction: column;
+
+`;
+
+export const Title = styled.span`
+font-family: Roboto, sans-serif;
+font-size: 20px;
+font-weight: bold;
+color: #696969;
+line-height: 29px;
+margin-bottom:10px;
+
+`;
+
+export const Address = styled.span`
+font-family: Roboto, sans-serif;
+font-size: 16px;
+color: #696969;
+line-height: 19px;
+margin-bottom:10px;
+
+`;
