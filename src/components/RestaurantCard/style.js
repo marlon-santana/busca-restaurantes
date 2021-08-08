@@ -36,5 +36,15 @@ font-size: 16px;
 color: #696969;
 line-height: 19px;
 margin-bottom:10px;
+margin-top: 10px;
+
+`;
+
+export const RestaurantPhoto = styled.img`
+width: 100px;
+height: 100px;
+border-radius: 16px;
+object-fit: cover;
+
 
 `;
