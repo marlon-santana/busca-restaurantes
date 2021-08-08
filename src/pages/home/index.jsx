@@ -5,7 +5,7 @@ import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 import restaurantes from '../../assets/restaurante-fake.png';
 import Slider from 'react-slick';
-import { Card } from '../../components';
+import { Card, RestaurantCard } from '../../components';
 
 
 
@@ -49,6 +49,9 @@ export function Home() {
 
                 </Carousel>
             </Search>
+            <RestaurantCard />
+            <RestaurantCard />
+            <RestaurantCard />
          </Container>
           <Map />
         </Wrapper>
