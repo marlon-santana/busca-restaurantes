@@ -49,7 +49,7 @@ export function Home() {
                     <Card photo={restaurantes} title="Nome do Restaurante"/>
                     <Card photo={restaurantes} title="Nome do Restaurante"/>
 
-                   <button onClick={() => setModalOpened(true)}>Abrir modal</button>
+                   
                 
                 </Carousel>
             </Search>
