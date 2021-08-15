@@ -6,12 +6,15 @@ import MaterialIcon from '@material/react-material-icon';
 import restaurantes from '../../assets/restaurante-fake.png';
 import Slider from 'react-slick';
 import { Card, RestaurantCard } from '../../components';
+import Modal from '../../components/Modal';
+
 
 
 
 
 export function Home() {
     const [inputValue, setInputValue] = useState('');
+    const [modalOpened, setModalOpened] = useState(false);
 
     const Settings = {
         dots: false,
@@ -45,8 +48,9 @@ export function Home() {
                     <Card photo={restaurantes} title="Nome do Restaurante"/>
                     <Card photo={restaurantes} title="Nome do Restaurante"/>
                     <Card photo={restaurantes} title="Nome do Restaurante"/>
-                    
 
+                   <button onClick={() => setModalOpened(true)}>Abrir modal</button>
+                
                 </Carousel>
             </Search>
             <RestaurantCard />
@@ -54,6 +58,8 @@ export function Home() {
             <RestaurantCard />
          </Container>
           <Map />
+          <Modal Open={modalOpened} onClose={() => setModalOpened(!modalOpened)}/>
+          
         </Wrapper>
     );
 };

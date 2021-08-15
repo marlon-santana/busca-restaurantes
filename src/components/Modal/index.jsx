@@ -1,10 +1,22 @@
 import React from 'react';
-import Portal from './Portal'
+import Portal from './Portal';
 
-const Modal = () => {
-    retutn (
+import { Overlay, Dialog } from './styles';
+
+const Modal = ({children, Open, onClose}) => {
+    if (!Open) return null;
+
+    function onOverlayClick(){
+        onClose();
+    };
+    function onDialogClick(e) {
+        e.stopPropagation();
+    };
+    return (
     <Portal>
-        <div>abkshg</div>
+        <Overlay>
+            <Dialog>{ children }</Dialog>
+        </Overlay>
     </Portal>
     );
 };
