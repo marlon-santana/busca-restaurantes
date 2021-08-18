@@ -1,5 +1,5 @@
 import React, { useState }  from 'react';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/pizza-logo.png';
 import { Container, Search,Carousel, Wrapper,Logo, CarouselTitle } from './styles';
 import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
