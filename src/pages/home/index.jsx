@@ -4,7 +4,6 @@ import { Container, Search,Carousel, Wrapper,Logo, CarouselTitle } from './style
 import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 import restaurantes from '../../assets/restaurante-fake.png';
-import Slider from 'react-slick';
 import { Card, RestaurantCard, Map } from '../../components';
 import Modal from '../../components/Modal';
 
