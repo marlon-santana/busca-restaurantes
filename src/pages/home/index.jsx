@@ -13,7 +13,8 @@ import Modal from '../../components/Modal';
 
 export function Home() {
     const [inputValue, setInputValue] = useState('');
-    const [modalOpened, setModalOpened] = useState(true);
+    const [modalOpened, setModalOpened] = useState(false);
+    const [query, setQuery] = useState(null);
 
     const Settings = {
         dots: false,
@@ -24,6 +25,12 @@ export function Home() {
         slidesToScroll: 4,
         adaptiveHeight: true,
       };
+
+      function handelKeyPress(e) {
+        if(e.key === 'Enter') {
+            setQuery(inputValue);
+        }
+      }
 
     return (
         <Wrapper>
@@ -37,6 +44,7 @@ export function Home() {
                trailingIcon={<MaterialIcon role="button" icon="search" />}
                 ><Input
                 value={inputValue}
+                onKeyPress={handelKeyPress}
                 onChange={(e) => setInputValue(e.target.value)}
                 />
                 </TextField>
@@ -56,7 +64,7 @@ export function Home() {
             <RestaurantCard />
             <RestaurantCard />
          </Container>
-          <Map />
+          <Map query={query} />
           <Modal Open={modalOpened} onClose={() => setModalOpened(!modalOpened)}/>
           
         </Wrapper>
