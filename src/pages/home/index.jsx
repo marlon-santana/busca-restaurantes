@@ -11,12 +11,12 @@ import Modal from '../../components/Modal';
 
 
 
-
 export function Home() {
     const [inputValue, setInputValue] = useState('');
-    const [modalOpened, setModalOpened] = useState(false);
+    const [modalOpened, setModalOpened] = useState(true);
     const [query, setQuery] = useState(null);
-    const { restaurants } = useSelector((state) => state.restaurants);
+    const [ placeId, setPlaceId ] = useState(null);
+    const { restaurants, restaurantSelected } = useSelector((state) => state.restaurants);
 
     const Settings = {
         dots: false,
@@ -32,6 +32,11 @@ export function Home() {
         if(e.key === 'Enter') {
             setQuery(inputValue);
         }
+      }
+
+      function handleOpenModal(placeId) {
+          setPlaceId(placeId);
+          setModalOpened(true);
       }
 
     return (
@@ -61,10 +66,11 @@ export function Home() {
                     ))}
                 </Carousel>
             </Search>
-            {restaurants.map((restaurant) => ( <RestaurantCard restaurant={restaurant} />
+            {restaurants.map((restaurant) => 
+            ( <RestaurantCard onClick={() => handleOpenModal(restaurant.place_id)} restaurant={restaurant} />
             ))}
          </Container>
-          <Map query={query} />
+          <Map query={query} placeId={placeId} />
           <Modal Open={modalOpened} onClose={() => setModalOpened(!modalOpened)}/>
           
         </Wrapper>
