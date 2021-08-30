@@ -57,3 +57,21 @@ line-height: 29px;
 margin: 16px 0;
 
 `;
+export const ModalTitle = styled.p `
+margin-bottom : 10px;
+letter-spacing: 0.11px;
+font-family: Roboto, sans-serif;
+color: rgba(0,0,0,0.7);
+text-transform: none;
+line-height: 29px;
+font-size: 24px;
+font-weight: bold;
+`;
+export const ModalContent = styled.p `
+font-family: Roboto, sans-serif;
+line-height: 29px;
+font-size: 24px;
+font-weight: normal;
+
+
+`;

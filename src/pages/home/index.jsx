@@ -1,7 +1,7 @@
 import React, { useState }  from 'react';
 import { useSelector } from 'react-redux';
 import logo from '../../assets/pizza-logo.png';
-import { Container, Search,Carousel, Wrapper,Logo, CarouselTitle } from './styles';
+import { Container, Search,Carousel, Wrapper,Logo, CarouselTitle, ModalTitle, ModalContent } from './styles';
 import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 import restaurante from '../../assets/restaurante-fake.png';
@@ -38,8 +38,10 @@ export function Home() {
           setPlaceId(placeId);
           setModalOpened(true);
       }
+      console.log(restaurantSelected?.name)
 
     return (
+        
         <Wrapper>
          <Container>
             <Search>
@@ -71,8 +73,18 @@ export function Home() {
             ))}
          </Container>
           <Map query={query} placeId={placeId} />
-          <Modal Open={modalOpened} onClose={() => setModalOpened(!modalOpened)}/>
+
+          <Modal Open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
+            <ModalTitle>{restaurantSelected?.name}</ModalTitle>
+            <ModalContent>{restaurantSelected?.formatted_phone_number}</ModalContent>
+            <ModalContent>{restaurantSelected?.formatted_address}</ModalContent>
+            <ModalContent>{restaurantSelected?.opening_hours?.open_now 
+            ? 'Aberto' : 
+            'Fechado'}</ModalContent>
+          </Modal>
           
         </Wrapper>
+        
+        
     );
 };

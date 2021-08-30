@@ -30,7 +30,7 @@ export const MapContainer = (props) => {
 
         const request = {
           placeId,
-          fields: [ 'name', 'opening_hours', 'formatted_adrress', 'formatted_phone_number'],
+          fields: ['name', 'opening_hours', 'formatted_address', 'formatted_phone_number'],
         };
         
         service.getDetails(request, (place, status) => {
