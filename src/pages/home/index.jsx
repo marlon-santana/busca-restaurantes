@@ -5,7 +5,7 @@ import { Container, Search,Carousel, Wrapper,Logo, CarouselTitle, ModalTitle, Mo
 import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 import restaurante from '../../assets/restaurante-fake.png';
-import { Card, RestaurantCard, Map, Loader } from '../../components';
+import { Card, RestaurantCard, Map, Loader, Skeleton } from '../../components';
 import Modal from '../../components/Modal';
 
 
@@ -83,12 +83,25 @@ export function Home() {
           <Map query={query} placeId={placeId} />
 
           <Modal Open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
-            <ModalTitle>{restaurantSelected?.name}</ModalTitle>
+            {restaurantSelected ? (
+              <>
+                <ModalTitle>{restaurantSelected?.name}</ModalTitle>
             <ModalContent>{restaurantSelected?.formatted_phone_number}</ModalContent>
             <ModalContent>{restaurantSelected?.formatted_address}</ModalContent>
             <ModalContent>{restaurantSelected?.opening_hours?.open_now 
             ? 'Aberto' : 
-            'Fechado'}</ModalContent>
+            'Fechado'}
+            </ModalContent>
+              </>
+            ) : (
+              <>
+              <Skeleton  width="10px" height="10px" />
+              <Skeleton  width="10px" height="10px" />
+              <Skeleton  width="10px" height="10px" />
+              <Skeleton  width="10px" height="10px" />
+              </>
+            )}
+            
           </Modal>
           
         </Wrapper>
