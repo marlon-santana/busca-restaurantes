@@ -5,7 +5,7 @@ import { Container, Search,Carousel, Wrapper,Logo, CarouselTitle, ModalTitle, Mo
 import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 import restaurante from '../../assets/restaurante-fake.png';
-import { Card, RestaurantCard, Map } from '../../components';
+import { Card, RestaurantCard, Map, Loader } from '../../components';
 import Modal from '../../components/Modal';
 
 
@@ -13,7 +13,7 @@ import Modal from '../../components/Modal';
 
 export function Home() {
     const [inputValue, setInputValue] = useState('');
-    const [modalOpened, setModalOpened] = useState(true);
+    const [modalOpened, setModalOpened] = useState(false);
     const [query, setQuery] = useState(null);
     const [ placeId, setPlaceId ] = useState(null);
     const { restaurants, restaurantSelected } = useSelector((state) => state.restaurants);
@@ -57,7 +57,10 @@ export function Home() {
                 onChange={(e) => setInputValue(e.target.value)}
                 />
                 </TextField>
-                <CarouselTitle>Na sua Ârea</CarouselTitle>
+
+                {restaurants.length > 0 ? (
+                  <>
+                    <CarouselTitle>Na sua Ârea</CarouselTitle>
                 <Carousel {...Settings}>
                     {restaurants.map((restaurant) => (
                         <Card 
@@ -67,6 +70,11 @@ export function Home() {
                      />
                     ))}
                 </Carousel>
+                  </>
+                ) : (
+                  <Loader />
+                )}
+                
             </Search>
             {restaurants.map((restaurant) => 
             ( <RestaurantCard onClick={() => handleOpenModal(restaurant.place_id)} restaurant={restaurant} />
