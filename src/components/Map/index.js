@@ -11,13 +11,17 @@ export const MapContainer = (props) => {
     const [map, setMap] = useState(null);
     const { google, query, placeId } = props;
 
+
     useEffect(() => {
+        //eslint-disable-next-line react-hooks/exhaustive-deps
         if(query) {
             searchByQuery(query);
+            
         }
     },[query]);
 
     useEffect(() => {
+        //eslint-disable-next-line react-hooks/exhaustive-deps
         if (placeId) {
             getRestaurantById(placeId);
         }
