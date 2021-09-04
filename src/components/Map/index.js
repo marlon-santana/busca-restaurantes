@@ -13,18 +13,18 @@ export const MapContainer = (props) => {
 
 
     useEffect(() => {
-        //eslint-disable-next-line react-hooks/exhaustive-deps
         if(query) {
             searchByQuery(query);
             
         }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     },[query]);
 
     useEffect(() => {
-        //eslint-disable-next-line react-hooks/exhaustive-deps
         if (placeId) {
             getRestaurantById(placeId);
         }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [placeId]);
 
 
